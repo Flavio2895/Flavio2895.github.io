@@ -23,8 +23,10 @@ function descifrado_cifrado(texto, desplazamiento,accion){
     }
     return resultado;
 }
-
+/*
 let textoOriginal = "ZGDS";
 let desplazamiento = 18;
 let textoCifrado = descifrado_cifrado(textoOriginal,desplazamiento,0);
-console.log(textoCifrado);
+console.log(textoCifrado);*/
+
+export default descifrado_cifrado;
