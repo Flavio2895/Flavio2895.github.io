@@ -1,20 +1,23 @@
-function descifrado_cifrado(texto, desplazamiento,accion){
+function descifrado_cifrado(texto, desplazamiento, accion) {
     const abecedario = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let resultado = '';
-
-    for (let i=0;i < texto.length; i++){
+    desplazamiento = desplazamiento % abecedario.length;
+    
+    for (let i = 0; i < texto.length; i++) {
         const letraActual = texto[i].toUpperCase();
         const indiceActual = abecedario.indexOf(letraActual);
 
-        if(indiceActual === -1){
+        if (indiceActual === -1) {
             resultado += letraActual;
-        }else{
-            let nuevoIndice
-            if(accion == 1){
-                nuevoIndice = (indiceActual + desplazamiento)%abecedario.length;
-            }else{
-                nuevoIndice = (indiceActual - desplazamiento)%abecedario.length;
-                if(nuevoIndice < 0){
+        } else {
+            let nuevoIndice;
+            if (accion == 1) {
+                // Cifrado
+                nuevoIndice = (indiceActual + desplazamiento) % abecedario.length;
+            } else {
+                // Descifrado
+                nuevoIndice = (indiceActual - desplazamiento) % abecedario.length;
+                if (nuevoIndice < 0) {
                     nuevoIndice += abecedario.length;
                 }
             }
@@ -23,6 +26,7 @@ function descifrado_cifrado(texto, desplazamiento,accion){
     }
     return resultado;
 }
+
 /*
 let textoOriginal = "ZGDS";
 let desplazamiento = 18;
